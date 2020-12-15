@@ -1,0 +1,33 @@
+<%= stylesheet_link_tag "/stylesheets/layout.css" %>
+<h3>Customer Registration</h3>
+<%= form_for @customer do |f|%>
+  <% if @customer.errors.any? %>
+    <div id="error_explanation">
+      <h5>
+        <div class="err">
+          <%= pluralize(@customer.errors.count, "error") %> </div>
+        occured during this sign-up:
+      </h5>
+      <h6>
+      <ul>
+        <% @customer.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </h6>
+    </div>
+  <% end %>
+
+  <h6><%= f.label :customer_name%></h6>
+  <%= f.text_field :customer_name%>
+  <h6><%= f.label :password%></h6>
+  <%= f.password_field :password%>
+  <h6><%= f.label :password_confirmation%></h6>
+  <%= f.password_field :password_confirmation%>
+  <h6><%= f.label :email_id%></h6>
+  <%= f.text_field :email_id%>
+  <h6><%= f.label :address%></h6>
+  <%= f.text_field :address%>
+
+  <h6><%= f.submit %></h6>
+<%end%>
