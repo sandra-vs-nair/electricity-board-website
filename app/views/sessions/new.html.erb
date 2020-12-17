@@ -1,0 +1,16 @@
+<%= stylesheet_link_tag "/stylesheets/form.css" %>
+<body background="/wallpaper.png">
+<% if flash[:alert] %>
+    <div class="err"><%= flash[:alert] %></div>
+<% end %>
+<%= form_tag '/login' do %>
+   <%= label_tag :'Email id'%>
+   <%= text_field_tag :email_id%>
+   <%= label_tag :Password%>
+   <%= password_field_tag :password%>
+   <div class=lgn>Login as</div>
+   <div class="lgn_btn"><nobr><%= submit_tag "Customer"%> <%= submit_tag "Staff", name: 'staff'%></nobr></div>
+   <p> Not registered yet?</p>
+   <p> Register as <%= link_to 'Customer', new_customer_path %> or <%= link_to 'Staff', new_staff_path %></p>
+<%end%>
+</body>

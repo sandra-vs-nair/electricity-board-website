@@ -1,0 +1,68 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700);
+
+body {
+  padding: 40px;
+  font-family: "Roboto","Open Sans Condensed", sans-serif;
+  font-size: 18px;
+}
+
+h3 {
+  text-align: center;
+  color: white;
+  font-size: 200%;
+  -webkit-text-stroke: 1px black;
+}
+
+form {
+  position: relative;
+  width: 250px;
+  margin: 0 0 0 0;
+  background: rgba(96,201,224,.3);
+  padding: 20px 22px;
+  border: 1px solid;
+  border-top-color: rgba(255,255,255,.4);
+  border-left-color: rgba(255,255,255,.4);
+  border-bottom-color: rgba(60,60,60,.4);
+  border-right-color: rgba(60,60,60,.4);
+}
+
+form input {
+  border: 1px solid;
+  border-bottom-color: rgba(255,255,255,.5);
+  border-right-color: rgba(60,60,60,.35);
+  border-top-color: rgba(60,60,60,.35);
+  border-left-color: rgba(80,80,80,.45);
+  background-color: rgba(0,0,0,.2);
+  background-repeat: no-repeat;
+  padding: 8px 24px 8px 30px;
+  font: bold .875em/1.25em "inherit","Open Sans Condensed", sans-serif;
+  letter-spacing: .075em;
+  color: #000;
+  text-shadow: 0 1px 0 rgba(0,0,0,.1);
+  margin-bottom: 19px;
+  margin-right: 20px;
+}
+
+form input:focus { background-color: rgba(0,0,0,.4); }
+
+.lgn {
+  text-align: center;
+  padding-bottom: 8px;
+  font-size: 15px;
+}
+
+.err {
+  color:#f71500;
+  font-size:20px;
+  padding-bottom: 25px;
+  -webkit-text-stroke : 0.1px black;
+}
+
+.register {
+  font-size:15px;
+}
+
+p {
+  font-size: 15px;
+}
+

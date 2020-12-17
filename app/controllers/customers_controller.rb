@@ -1,4 +1,8 @@
 class CustomersController < ApplicationController
+
+  before_action :authorize_customer, only: []
+  before_action :authorize_staff, only: []
+  
   def index
   end
 
@@ -9,9 +13,11 @@ class CustomersController < ApplicationController
   def create
     @customer = Customer.create(params.require(:customer).permit(:customer_name,:password,:password_confirmation,:email_id,:address))
     if @customer.save
-      render 'index'
+      session[:customer_id] = @customer.id
+      redirect_to '/customer_welcome'
     else
       render 'new'
     end
   end
+
 end

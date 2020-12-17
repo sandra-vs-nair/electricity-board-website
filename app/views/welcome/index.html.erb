@@ -1,8 +1,8 @@
 <%= stylesheet_link_tag "/stylesheets/welcome.css" %>
-<h1>Electricity Board</h1>
+<h1>Kerala State Electricity Board Limited</h1>
 <body background="/welcome.jpg">
-<div class="link">
-<h6><%= link_to 'Customer registration', new_customer_path %> </h6>
+<div>
+<%= render :template => "sessions/new" %>
 </div>
 </body>
 

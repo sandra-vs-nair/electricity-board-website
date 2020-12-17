@@ -1,0 +1,6 @@
+<h1>Welcome</h1>
+<% if customer_logged_in? %>
+    <h1>You are Logged In, <%= current_customer.customer_name %></h1>
+    <%= link_to "Logout", '/logout' %>
+<%end%>
+
