@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   
   before_action :authorize_customer, only: [:customer_welcome] 
-  before_action :authorize_staff, only: [:staff_welcome] 
+  before_action :authorize_staff, only: [:staff_welcome]
   
   def new
   end
@@ -29,6 +29,7 @@ class SessionsController < ApplicationController
   end
 
   def customer_welcome
+    @customer = Customer.find_by(id: session[:customer_id])
   end
 
   def staff_welcome

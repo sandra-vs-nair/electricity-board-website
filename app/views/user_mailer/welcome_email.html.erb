@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+</head>
+<body>
+  <h1>Hello <%= @customer.customer_name %></h1>
+  <p>
+    Providing the details of your pending bill information below:
+  </p>
+  <table class="tb">
+  <tr>
+  <th>Month&nbsp;</th>
+  <th>Amount&nbsp;</th>
+  <th>Status&nbsp;</th>
+  </tr>
+  <% @customer.bills.each do |bill| %>
+    <% if bill.status == "Due" %>
+    <tr>
+      <td><%= bill.month %>&nbsp;</td>
+      <td><%= bill.amount %>&nbsp;</td>
+      <td><%= bill.status%>&nbsp;</td>
+    </tr>
+    <%end%>
+  <%end%>
+  </table>
+  
+  <p>Have a great day!</p>
+</body>
+</html>

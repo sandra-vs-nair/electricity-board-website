@@ -1,6 +1,41 @@
-<h1>Welcome</h1>
+<%= stylesheet_link_tag "/stylesheets/customer.css" %>
+<body background="/wallpaper.png">
 <% if customer_logged_in? %>
-    <h1>You are Logged In, <%= current_customer.customer_name %></h1>
-    <%= link_to "Logout", '/logout' %>
+    <h3>Welcome <%= current_customer.customer_name %></h3>
+    <div class="buttonTo"><%= button_to 'Logout', logout_path, method: :get%></div>
+    <h2 style=text-align:center;><u>Bill Information</u></h2>
+    <table class="tb">
+    <tr>
+    <th>Month</th>
+    <th>Amount</th>
+    <th>Status</th>
+    </tr>
+    <% @customer.bills.each do |bill| %>
+    <tr>
+      <td><%= bill.month %></td>
+      <td><%= bill.amount %></td>
+      <td><%= bill.status%></td>
+    </tr>
+    <%end%>
+    </table>
+
+    <h2>Add a bill:</h2>
+    <%= form_with model: [ @customer, @customer.bills.build ] do |form| %>
+    <p>
+      <%= form.label :amount %><br>
+      <%= form.text_field :amount %>
+    </p>
+    <p>
+      <%= form.label :month %><br>
+      <%= form.select :month, ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']%>
+    </p>
+    <p>
+      <%= form.label :status %><br>
+      <%= form.select :status, ['Paid', 'Due']%>
+    </p>
+    <p>
+      <%= form.submit %>
+    </p>
+    <%end%>
 <%end%>
 
