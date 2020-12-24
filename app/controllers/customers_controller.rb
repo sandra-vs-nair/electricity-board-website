@@ -1,7 +1,7 @@
 class CustomersController < ApplicationController
 
   before_action :authorize_customer, only: []
-  before_action :authorize_staff, only: []
+  before_action :authorize_staff, only: [:staff_edit, :destroy]
   
   def index
   end
@@ -18,6 +18,16 @@ class CustomersController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def staff_edit
+    @customer = Customer.find_by_email_id(params[:email_id])
+  end
+
+  def destroy
+    @customer = Customer.find(params[:id])
+    @customer.destroy
+    redirect_to staff_welcome_path
   end
 
 end

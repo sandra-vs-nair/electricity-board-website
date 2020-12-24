@@ -1,0 +1,19 @@
+<%= stylesheet_link_tag "/stylesheets/customer.css" %>
+<h3>Edit Bill</h3>
+<body background="/wallpaper.png">
+<h4 style="padding-left:80%;"><%= link_to 'Back', staff_welcome_path %></h4>
+<% if flash[:errors] %>
+  <div style="padding-left:40%;">
+    <span style="color:white;background-color:red;size=15px;">Following erros occured!</span>
+    </br></br>
+    <% flash[:errors].each do |e| %>
+      <span style="color:white;"><%= e %></span>
+      </br>
+  <% end %>
+  </br>
+  </br>
+  </div>
+<% end %>
+<%= render 'form' %>
+</body>
+

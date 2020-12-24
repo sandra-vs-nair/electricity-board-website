@@ -33,6 +33,7 @@ class SessionsController < ApplicationController
   end
 
   def staff_welcome
+    @customers = Customer.all
   end
 
   def destroy

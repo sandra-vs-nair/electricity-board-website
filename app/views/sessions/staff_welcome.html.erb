@@ -1,6 +1,27 @@
-<h1>Welcome staff</h1>
+<%= stylesheet_link_tag "/stylesheets/customer.css" %>
+<body background="/wallpaper.png">
 <% if staff_logged_in? %>
-    <h1>You are Logged In, <%= current_staff.staff_name %></h1>
-    <%= link_to "Logout", '/logout' %>
+    <div class="buttonTo"><%= button_to 'Logout', logout_path, method: :get%></div>
+    <h3>Welcome <%= current_staff.staff_name %></h3>
+    <h4>Customer Details</h4>
+    <table>
+  <tr>
+    <th>Customer Name</th>
+    <th>Email</th>
+    <th>Address</th>
+    <th colspan="20"></th>
+  </tr>
+ 
+  <% @customers.each do |customer| %>
+    <tr>
+      <td><%= customer.customer_name %></td>
+      <td><%= customer.email_id %></td>
+      <td><%= customer.address %></td>
+      <td><%= link_to "Edit",staff_edit_path(:email_id => customer.email_id) %></td>
+      <td><%= link_to 'Delete', [customer],
+               method: :delete,
+               data: { confirm: "Are you sure?" } %></td>
+  <% end %>
+</table>
 <%end%>
-
+</body>

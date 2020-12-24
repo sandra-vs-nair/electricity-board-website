@@ -56,3 +56,11 @@ table.tb {
 td {
   height:40px;
 }
+
+.err {
+  color: #f71500;
+  font-size: 20px;
+  padding-bottom: 25px;
+  -webkit-text-stroke : 0.1px black;
+}
+

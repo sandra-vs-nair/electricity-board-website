@@ -1,0 +1,24 @@
+<%= stylesheet_link_tag "/stylesheets/customer.css" %>
+<%= form_with model: [ @customer, @customer.bills.build ] do |form| %>
+    <%= form.hidden_field :staff_name,value:current_staff.staff_name %>
+    <%= form.hidden_field :staff_email,value:current_staff.email_id %>
+    <p>
+      <%= form.label :amount %><br>
+      <%= form.text_field :amount %>
+    </p>
+    <p>
+      <%= form.label :month %><br>
+      <%= form.select :month, ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']%>
+    </p>
+    <p>
+      <%= form.label :status %><br>
+      <%= form.select :status, ['Paid', 'Due']%>
+    </p>
+    <p>
+      <%= form.label :year %><br>
+      <%= form.select :year,Date.today.year-1 .. Date.today.year %>
+    </p>
+    <p>
+      <%= form.submit %>
+    </p>
+<%end%>

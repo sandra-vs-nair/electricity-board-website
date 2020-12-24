@@ -10,15 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_19_082722) do
+ActiveRecord::Schema.define(version: 2020_12_24_082158) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bills", force: :cascade do |t|
+    t.string "year"
     t.string "month"
     t.float "amount"
     t.string "status"
+    t.string "staff_name"
+    t.string "staff_email"
     t.bigint "customer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

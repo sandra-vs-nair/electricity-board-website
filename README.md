@@ -28,7 +28,7 @@ Ubuntu 20.04.1 LTS
 2.rails db:migrate  
 3.rails generate model Staff staff\_name:string password\_digest:string email\_id:string address:string  
 4.rails db:migrate    
-5.rails generate model Bill month:string amount:float status:string customer:references  
+5.rails generate model Bill year:string month:string amount:float status:string staff\_name:string staff\_email:string customer:references  
 6.rails db:migrate  
 
 ### Crontab (Normal installation steps. Only step 2 is needed in your PC since I have completed all other steps.):  

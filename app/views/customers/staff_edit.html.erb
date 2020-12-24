@@ -1,0 +1,52 @@
+<%= stylesheet_link_tag "/stylesheets/customer.css" %>
+<h3>Customer Details</h3>
+<body background="/wallpaper.png">
+<h5>Name: <%= @customer.customer_name %><br>
+    Email: <%= @customer.email_id %>
+</h5>
+<div class="buttonTo"><%= button_to 'Logout', logout_path, method: :get%></div>
+<%= link_to 'Back', staff_welcome_path %>
+<% if flash[:errors] %>
+  <div style="padding-left:40%;">
+    <span style="color:white;background-color:red;size=15px;">Following erros occured!</span>
+  </br></br>
+    <% flash[:errors].each do |e| %>
+      <span style="color:white;"><%= e %></span>
+      </br>
+  <% end %>
+  </br>
+  </br>
+  </div>
+<% end %>
+<table class="tb">
+    <tr>
+    <th>Year</th>
+    <th>Month</th>
+    <th>Amount</th>
+    <th>Status</th>
+    <th colspan="2">Last modified by</th>
+    </tr>
+    <tr>
+    <th colspan="4"></th>
+    <th>Staff name</th>
+    <th>Staff email</th>
+    </tr>
+    <% @customer.bills.each do |bill| %>
+    <tr>
+      <td><%= bill.year %></td>
+      <td><%= bill.month %></td>
+      <td><%= bill.amount %></td>
+      <td><%= bill.status%></td>
+      <td><%= bill.staff_name%></td>
+      <td><%= bill.staff_email%></td>
+      <td><%= link_to 'Edit', edit_customer_bill_path(customer_id: bill.customer,id: bill), method: :get%> |
+      <%= link_to 'Delete', [bill.customer, bill],
+               method: :delete,
+               data: { confirm: "Are you sure?" } %></td>
+    </tr>
+    <%end%>
+</table>
+
+<h2>Add a bill:</h2>
+    <%= render 'form' %>
+</body>

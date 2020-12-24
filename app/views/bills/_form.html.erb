@@ -1,0 +1,30 @@
+<%= stylesheet_link_tag "/stylesheets/customer.css" %>
+<% if flash[:alert] %>
+  <div style="padding-left:40%;">
+    <span style="color:white;background:#f71500;"><%= flash[:alert] %></span>
+  </br>
+  </br>
+  </div>
+<% end %>
+<%= form_with model: [@customer,@bill], :url => {:controller => "bills", :action => "update"} do |form| %>
+
+    <%= hidden_field_tag :customer_id, @customer.id %>
+    <%= hidden_field_tag :bill_id, @bill.id %>
+    <%= form.hidden_field :staff_name,value:current_staff.staff_name %>
+    <%= form.hidden_field :staff_email,value:current_staff.email_id %>
+    <p>
+      <%= form.label :amount %><br>
+      <%= form.text_field :amount,value: @bill.amount if @bill %>
+    </p>
+    <p>
+      <%= form.label :month %><br>
+      <%= form.select :month, ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'], :selected => @bill.month if @bill %>
+    </p>
+    <p>
+      <%= form.label :status %><br>
+      <%= form.select :status, ['Paid', 'Due'], :selected => @bill.status if @bill%>
+    </p>
+    <p>
+      <%= form.submit %>
+    </p>
+<%end%>
