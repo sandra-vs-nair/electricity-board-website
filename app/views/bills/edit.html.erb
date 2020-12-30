@@ -4,7 +4,7 @@
 <h4 style="padding-left:80%;"><%= link_to 'Back', staff_welcome_path %></h4>
 <% if flash[:errors] %>
   <div style="padding-left:40%;">
-    <span style="color:white;background-color:red;size=15px;">Following erros occured!</span>
+    <span style="color:white;background-color:red;size=15px;">Following errors occured!</span>
     </br></br>
     <% flash[:errors].each do |e| %>
       <span style="color:white;"><%= e %></span>

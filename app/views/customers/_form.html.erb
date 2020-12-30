@@ -11,12 +11,12 @@
       <%= form.select :month, ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']%>
     </p>
     <p>
-      <%= form.label :status %><br>
-      <%= form.select :status, ['Paid', 'Due']%>
-    </p>
-    <p>
       <%= form.label :year %><br>
       <%= form.select :year,Date.today.year-1 .. Date.today.year %>
+    </p>
+    <p>
+      <%= form.label :status %><br>
+      <%= form.select :status, ['Paid', 'Due']%>
     </p>
     <p>
       <%= form.submit %>

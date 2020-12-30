@@ -17,18 +17,21 @@ class BillsController < ApplicationController
   def edit
      @customer = Customer.find(params[:customer_id])
      @bill = @customer.bills.find(params[:id])
+     @flag = 0
+     @paid = 0
      now = Date.today
      val = Date.new(now.year, now.month, 1)
      if @bill.created_at < val
-       flash[:errors] = ["You can't edit the bill after bill delivery!"]
-       redirect_to staff_edit_path(:email_id => @customer.email_id)
+       @flag = 1
+     end
+     if @bill.status == "Paid"
+       @paid = 1
      end
   end
 
   def update
     @customer = Customer.find(params[:customer_id])
     @bill = @customer.bills.find(params[:bill_id])
-
     if @bill.update(bill_params)
       redirect_to staff_edit_path(:email_id => @customer.email_id)
     else

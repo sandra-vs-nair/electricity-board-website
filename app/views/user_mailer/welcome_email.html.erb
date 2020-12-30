@@ -6,10 +6,11 @@
 <body>
   <h1>Hello <%= @customer.customer_name %></h1>
   <p>
-    Providing the details of your pending bill information below:
+    Providing the details of your pending electricity bill information below:
   </p>
   <table class="tb">
   <tr>
+  <th>Year&nbsp;</th>
   <th>Month&nbsp;</th>
   <th>Amount&nbsp;</th>
   <th>Status&nbsp;</th>
@@ -17,6 +18,7 @@
   <% @customer.bills.each do |bill| %>
     <% if bill.status == "Due" %>
     <tr>
+      <td><%= bill.year %>&nbsp;</td>
       <td><%= bill.month %>&nbsp;</td>
       <td><%= bill.amount %>&nbsp;</td>
       <td><%= bill.status%>&nbsp;</td>

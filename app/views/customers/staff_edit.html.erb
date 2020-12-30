@@ -8,7 +8,7 @@
 <%= link_to 'Back', staff_welcome_path %>
 <% if flash[:errors] %>
   <div style="padding-left:40%;">
-    <span style="color:white;background-color:red;size=15px;">Following erros occured!</span>
+    <span style="color:white;background-color:red;size=15px;">Following errors occured!</span>
   </br></br>
     <% flash[:errors].each do |e| %>
       <span style="color:white;"><%= e %></span>
@@ -39,10 +39,7 @@
       <td><%= bill.status%></td>
       <td><%= bill.staff_name%></td>
       <td><%= bill.staff_email%></td>
-      <td><%= link_to 'Edit', edit_customer_bill_path(customer_id: bill.customer,id: bill), method: :get%> |
-      <%= link_to 'Delete', [bill.customer, bill],
-               method: :delete,
-               data: { confirm: "Are you sure?" } %></td>
+      <td><%= link_to 'Edit', edit_customer_bill_path(customer_id: bill.customer,id: bill), method: :get%>
     </tr>
     <%end%>
 </table>
