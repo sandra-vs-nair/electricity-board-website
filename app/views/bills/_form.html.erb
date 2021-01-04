@@ -18,8 +18,8 @@
       </p>
       <p>
       <%= form.label :year %><br>
-      <% year_options = [Date.today.year-1, Date.today.year] %>
-      <%= form.select :year,Date.today.year-1 .. Date.today.year, :disabled => year_options, :selected => @bill.year if @bill %>
+      <% year_options = [@bill.year] %>
+      <%= form.select :year, year_options, :disabled => year_options, :selected => @bill.year if @bill %>
       </p>
     <% else %>
       <%= form.label :amount %><br>
