@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+</head>
+<body>
+  <h1>Hello <%= @staff.staff_name %></h1>
+  <p>
+  You have successfully created a staff account in KSEB.</br>
+  Providing the details of your account below:
+  </p>
+  <table class="tb">
+  <tr>
+  <th>Name&nbsp;</th>
+  <th>Email&nbsp;</th>
+  <th>Password&nbsp;</th>
+  <th>Address&nbsp;</th>
+  </tr>
+    <tr>
+      <td><%= @staff.staff_name %>&nbsp;</td>
+      <td><%= @staff.email_id %>&nbsp;</td>
+      <td><%= @staff.password %>&nbsp;</td>
+      <td><%= @staff.address%>&nbsp;</td>
+  </table>
+  
+  <p>Have a great day!</p>
+</body>
+</html>

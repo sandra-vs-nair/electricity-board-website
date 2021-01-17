@@ -22,6 +22,26 @@
                method: :delete,
                data: { confirm: "Are you sure?" } %></td>
   <% end %>
+ </table>
+
+ </br></br></br>
+ <table>
+  <tr>
+    <th>Year</th>
+    <th>Month</th>
+    <th>Total Paid</th>
+    <th>Total Due</th>
+  </tr>
+  <% @values.each do |value| %>
+  <tr>
+     <td><%= value[0] %></td>
+     <td><%= value[1] %></td>
+     <td><%= sprintf "%.2f",value[2] %></td>
+     <td><%= sprintf "%.2f",value[3] %></td>
+  </tr>
+<% end %>
 </table>
+
+
 <%end%>
 </body>

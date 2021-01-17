@@ -18,6 +18,10 @@
   </br>
   </div>
 <% end %>
+<br></br>
+<% @customer.bills.group(:status).sum(:amount).each do |status,sum| %>
+  <br> Total <%= status %> : <%= sum %> <br>
+<% end %>
 <table class="tb">
     <tr>
     <th>Year</th>

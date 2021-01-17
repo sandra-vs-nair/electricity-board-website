@@ -34,6 +34,37 @@ class SessionsController < ApplicationController
 
   def staff_welcome
     @customers = Customer.all
+    @months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
+    @years = Date.today.year-1 .. Date.today.year
+
+    @values = []
+    @years.each do |year|
+    @months.each do |month|
+    @sum = 0
+    @due = 0
+    @year = year #'2020'
+    @month = month
+    
+    @rec = Bill.where(year: @year, :month => @month)
+
+    if @rec.present?
+      @paids = Bill.where(year: @year, :month => @month, :status => 'Paid')
+   
+      @paids.each do |paid|
+        @sum = @sum + paid.amount
+      end
+        
+      @dues = Bill.where(:year => @year, :month => @month, :status => 'Due')
+      @dues.each do |due|
+        @due = @due + due.amount
+      end
+     
+      @arr = [@year,@month,@sum,@due]
+      @values.push(@arr)
+    end
+    end
+    end
+
   end
 
   def destroy

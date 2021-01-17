@@ -1,6 +1,6 @@
 # Web platform for electricity board.
 
-This project aims to create a web platform for Electricity board which focus mainly on the bill management system. The website will have provisions for the registration and login of staffs and customers. Staffs will have the authority to add or modify customer bills. Customers will have the provision to view their own bills. It also includes a system in which the pending bill information is sent to the customer on the first day of every month via email.
+This project aims to create a web platform for Electricity board which focus mainly on the bill management system. The website will have provisions for the registration and login of staffs and customers. Staffs will get a welcome email with login credentials once they sign up. Staffs will have the authority to add or modify customer bills. They can view the total bill amount paid and due in each month. Customers will have the provision to view their own bills. It also includes a system in which the pending bill information is sent to the customer on the first day of every month via email.
 
 ## Configuration details
 

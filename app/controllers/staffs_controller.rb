@@ -15,6 +15,7 @@ class StaffsController < ApplicationController
     @staff = Staff.create(params.require(:staff).permit(:staff_name,:password,:password_confirmation,:email_id,:address))
     if @staff.save
       session[:staff_id] = @staff.id
+      UserMailer.staff_email(@staff).deliver
       redirect_to '/staff_welcome'
     else
       render 'new'
